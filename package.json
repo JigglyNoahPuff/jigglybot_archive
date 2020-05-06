@@ -1,0 +1,16 @@
+{
+  "name": "jigglybot",
+  "version": "1.0.0",
+  "description": "My Second Discord Bot",
+  "main": "bot.js",
+  "author": "Noah Cook",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "discord.js": "^11.5.1",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "opusscript": "0.0.7",
+    "winston": "^3.2.1",
+    "ytdl-core": "^1.0.0"
+  }
+}
