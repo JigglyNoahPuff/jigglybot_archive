@@ -373,19 +373,30 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     //checks if two people are compatible
     function lovetest(args) {
         if (args.length > 2) {
-            var seed = 0;
-            var tempString = args[1];
-            for (var i = 0; i < tempString.length; i++) {
-                seed += tempString.charCodeAt(i);
+            if (args[1] == "69") {
+                var seed = 69;
             }
-            tempString = args[2];
-        
-            for (var i = 0; i < tempString.length; i++) {
-                seed += tempString.charCodeAt(i);
+
+            else if (args[1] == "100") {
+                var seed = 100;
             }
-            seed += args[1].charCodeAt(0) + args[1].charCodeAt(args[1].length - 1);
-            seed += args[2].charCodeAt(0) + args[2].charCodeAt(args[2].length - 1);
-            seed = (seededRandom(seed) % 100) + 1;
+            
+            else {
+                var seed = 0;
+                var tempString = args[1];
+                for (var i = 0; i < tempString.length; i++) {
+                    seed += tempString.charCodeAt(i);
+                }
+                tempString = args[2];
+            
+                for (var i = 0; i < tempString.length; i++) {
+                    seed += tempString.charCodeAt(i);
+                }
+                seed += args[1].charCodeAt(0) + args[1].charCodeAt(args[1].length - 1);
+                seed += args[2].charCodeAt(0) + args[2].charCodeAt(args[2].length - 1);
+                seed = (seededRandom(seed) % 100) + 1;
+            }
+            
             tempString = seed;
             tempString += "%";
 
