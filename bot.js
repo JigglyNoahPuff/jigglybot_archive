@@ -380,6 +380,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             else if (args[1] == "100") {
                 var seed = 100;
             }
+
+            else if ((args[1] == "collin" && args[2] == "thighs") || (args[1] == "thighs" && args[2] == "collin" )) {
+                var seed = 98;
+            }
             
             else {
                 var seed = 0;
@@ -422,7 +426,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 tempString += "\nOoooooooohh its getting hot in here, I swear those two are better than Trump and divorcing his wife for a new model."
             }
             else if (seed < 100) {
-                tempString += "\nThese two are nearly perfect, Collin and Thighs are even better of a match as these two.";
+                tempString += "\nThese two are nearly perfect, Collin and Thighs are even as amazing of a match as these two.";
             }
             else if (seed == 100) {
                 tempString += "\nThere's certainly no way these two could find a better match. Brangelina move out of the way here comes "
