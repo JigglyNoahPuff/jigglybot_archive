@@ -5,7 +5,7 @@ module.exports = class ConchShellCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'magicconch',
-      aliases: ['magic-conch', 'conch-shell'],
+      aliases: ['magic-conch', 'conch-shell', 'conchshell', 'conch'],
       group: 'noahs',
       memberName: 'magicconch',
       guildOnly: true,

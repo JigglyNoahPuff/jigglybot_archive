@@ -6,11 +6,11 @@ const { Command } = require('discord.js-commando');
 module.exports = class NoahCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'noah',
-      aliases: ['noah-code', 'collin-mess-up'],
-      memberName: 'noah',
+      name: 'covid',
+      aliases: ['coronavirus', 'covid-19', 'covid19'],
+      memberName: 'covid',
       group: 'noahs',
-      description: 'Chews out Collin',
+      description: 'Tells You the Number of Cases in a State',
       args: [
         {
           key: 'state',
