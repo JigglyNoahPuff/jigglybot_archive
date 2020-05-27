@@ -296,7 +296,7 @@ module.exports = class ClipCommand extends Command {
           embed
           .setColor('#FFB6C1')
           .setTitle("You are made of stupid.")
-          .setDescription("This ones called Stupid by George Takei. Use 'clip ohmy' to call it.")
+          .setDescription("This ones called Stupid by George Takei. Use 'clip stupid' to call it.")
           .setURL('https://youtu.be/yytbDZrw1jc');
         return message.say(embed);
 
