@@ -27,9 +27,10 @@ module.exports = class ClipCommand extends Command {
   run(message, {clip}) {
     var voiceChannel = message.member.voice.channel;
     if (clip == "random") {
-      clip = Math.floor(Math.random() * 46);
+      clip = Math.floor(Math.random() * 64);
     }
     const embed = new MessageEmbed();
+    var url;
 
       switch(clip) {
         
@@ -183,7 +184,7 @@ module.exports = class ClipCommand extends Command {
           embed
           .setColor('#FFB6C1')
           .setTitle("Wam")
-          .setDescription("This ones called Boo. Use 'clip wam' to call it.")
+          .setDescription("This ones called Wam. Use 'clip wam' to call it.")
           .setURL('https://youtu.be/_pVNvSuA2mM');
         return message.say(embed);
 
@@ -604,11 +605,12 @@ module.exports = class ClipCommand extends Command {
           embed
           .setColor('#FFB6C1')
           .setTitle("Roblox Oof")
-          .setDescription("This ones called Illuminati. Use 'clip oof' to call it.")
+          .setDescription("This ones called Roblox Oof. Fun fact I made an oof while making writing the description for this clip. Use 'clip oof' to call it.")
           .setURL('https://youtu.be/3w-2gUSus34');
         return message.say(embed);
 
         case "dundun":
+        case "dun dun":
         case 42:
           voiceChannel.join()
           .then(connection => {
@@ -662,6 +664,339 @@ module.exports = class ClipCommand extends Command {
           .setTitle("I Shot and I Miss")
           .setDescription("This ones called Shot and Miss. Use 'clip shotandmiss' to call it.")
           .setURL('https://youtu.be/_BcnxsvM6J8');
+        return message.say(embed);
+
+        case "lemons":
+        case 46:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/g8ufRnf2Exc', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Lemons")
+          .setDescription("This ones called Lemons by Cave Johnson. Use 'clip lemons' to call it.")
+          .setURL('https://youtu.be/g8ufRnf2Exc');
+        return message.say(embed);
+
+        case "potato":
+        case 47:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/KJ070rc5hpw', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("I'm a Potato")
+          .setDescription("This ones called Potato by GladOS. Use 'clip potato' to call it.")
+          .setURL('https://youtu.be/KJ070rc5hpw');
+        return message.say(embed);
+
+        case "degenerates":
+        case "collin2":
+        case 48:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/ngdAwK-VT3Q', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("We Have So Many Degenerates")
+          .setDescription("This ones called Degenerates by Internkun. Use 'clip degenerates' to call it.")
+          .setURL('https://youtu.be/ngdAwK-VT3Q');
+        return message.say(embed);
+
+        case "weatherboy":
+        case 49:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/ehH9OQMQXIk', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Wouldn't You Like to Know Weatherboy?")
+          .setDescription("This ones called weatherboy. Use 'clip weatherboy' to call it.")
+          .setURL('https://youtu.be/ehH9OQMQXIk');
+        return message.say(embed);
+
+        case "lambsauce":
+        case "lamb sauce":
+        case 50:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/BS2hrc6TpIA', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("WHERES THE LAMB SAUCE?!?")
+          .setDescription("This ones called Lamb Sauce by Gordon Ramsey. Use 'clip lambsauce' to call it.")
+          .setURL('https://youtu.be/BS2hrc6TpIA');
+        return message.say(embed);
+
+        case "leftyou":
+        case 51:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/ei0ds1Dj6_c', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("I Should've Left You")
+          .setDescription("This ones called Left You. Use 'clip leftyou' to call it.")
+          .setURL('https://youtu.be/ei0ds1Dj6_c');
+        return message.say(embed);
+
+        case "presex":
+        case 52:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/hjsm-2oCcLk', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Sex Before Marriage")
+          .setDescription("This ones called Pre(Marital)Sex. Use 'clip presex' to call it.")
+          .setURL('https://youtu.be/hjsm-2oCcLk');
+        return message.say(embed);
+
+        case "wolf":
+        case 53:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/LtH7l-dhHZQ', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("All On Levels Except Physical")
+          .setDescription("This ones called Wolf. Use 'clip wolf' to call it.")
+          .setURL('https://youtu.be/LtH7l-dhHZQ');
+        return message.say(embed);
+
+        case "meat":
+        case 54:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/Acjf66Qdj2U', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Give Your Meat a Good Ol Rub")
+          .setDescription("This ones called Meat. Use 'clip meat' to call it.")
+          .setURL('https://youtu.be/Acjf66Qdj2U');
+        return message.say(embed);
+
+        case "damage":
+        case 55:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/1Vi5MtBFdJo', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("That's a Lot of Damage")
+          .setDescription("This ones called Damage. Use 'clip damage' to call it.")
+          .setURL('https://youtu.be/1Vi5MtBFdJo');
+        return message.say(embed);
+
+        case "deedee":
+        case "megadoodoo":
+        case "deedee megadoodoo":
+        case 56:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/Of_Apo0hcik', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Deedee Megadoodoo")
+          .setDescription("This ones called Deedee. Use 'clip deedee' to call it.")
+          .setURL('https://youtu.be/Of_Apo0hcik');
+        return message.say(embed);
+
+        case "nani":
+        case 57:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/dNQs_Bef_V8', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Omae Wa Mou Shindeiru")
+          .setDescription("This ones called Nani. Use 'clip nani' to call it.")
+          .setURL('https://youtu.be/dNQs_Bef_V8');
+        return message.say(embed);
+
+        case "achild":
+        case "child":
+        case "rapist":
+        case 58:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/U6Jogncx9Hk', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Only One Thing Worse Than a Rapist")
+          .setDescription("This ones called AChild. Use 'clip achild' to call it.")
+          .setURL('https://youtu.be/U6Jogncx9Hk');
+        return message.say(embed);
+
+        case "lemonsvine":
+        case 59:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/EcLPNGLRHU8', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("When Life Gives You Lemons dun dun dun   dun dun  duh")
+          .setDescription("This ones called lemonsvine. Use 'clip lemonsvine' to call it.")
+          .setURL('https://youtu.be/EcLPNGLRHU8');
+        return message.say(embed);
+
+        case "gonesexual":
+        case "gs":
+        case 60:
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl('https://youtu.be/xZ_22WJW8rA', { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Gone Sexual")
+          .setDescription("This ones called Gone Sexual by Ethan Klein. Use 'clip gonesexual' to call it.")
+          .setURL('https://youtu.be/xZ_22WJW8rA');
+        return message.say(embed);
+
+        case "china":
+        case 61:
+          var randTrump = Math.floor(Math.random() * 23);
+          switch (randTrump) {
+            case 0:
+              url = "https://youtu.be/SKiaytTmP-E";
+            break;
+            case 1:
+              url = "https://youtu.be/SWPg7SATiUc";
+            break;
+            case 2:
+              url = "https://youtu.be/gHR6CakUVHM";
+            break;
+            case 3:
+              url = "https://youtu.be/2BB0Rz0uIPc";
+            break;
+            case 4:
+              url = "https://youtu.be/GXS-AFFoPO8";
+            break;
+            case 5:
+              url = "https://youtu.be/_ugZxci_SWY";
+            break;
+            case 6:
+              url = "https://youtu.be/vZG9BiqNy_Y";
+            break;
+            case 7:
+              url = "https://youtu.be/-RfHfXsf9Qs";
+            break;
+            case 8:
+              url = "https://youtu.be/wQsgCYeXCqU";
+            break;
+            case 9:
+              url = "https://youtu.be/LlC2UvId2IQ";
+            break;
+            case 10:
+              url = "https://youtu.be/YXboIqEvUVE";
+            break;
+            case 11:
+              url = "https://youtu.be/nSsxbKnTtNk";
+            break;
+            case 12:
+              url = "https://youtu.be/WvFZtlGQxI8";
+            break;
+            case 13:
+              url = "https://youtu.be/kcE9WSS-C_k";
+            break;
+            case 14:
+              url = "https://youtu.be/P6QaczVZRTg";
+            break;
+            case 15:
+              url = "https://youtu.be/MkjR1UVjMxI";
+            break;
+            case 16:
+              url = "https://youtu.be/aeJXic1N6UE";
+            break;
+            case 17:
+              url = "https://youtu.be/HGlNkwov370";
+            break;
+            case 18:
+              url = "https://youtu.be/6KhPaqLmQDw";
+            break;
+            case 19:
+              url = "https://youtu.be/jKegvxMSyts";
+            break;
+            case 20:
+              url = "https://youtu.be/mF6UMbDRPiw";
+            break;
+            case 21:
+              url = "https://youtu.be/BVfq047aPtE";
+            break;
+            case 22:
+              url = "https://youtu.be/Ce_AyIakdmc";
+            break;
+          }
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("China")
+          .setDescription("This ones called China by Donald Trump. There are 23 different clips, and it is random. Use 'clip china' to call it.")
+          .setURL(url);
+        return message.say(embed);
+
+        case "curb":
+        case 62:
+          url = "https://youtu.be/CdqMZ_s7Y6k";
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("Curb Your Enthusiam")
+          .setDescription("This ones called Curb. Use 'clip curb' to call it.")
+          .setURL(url);
+        return message.say(embed);
+
+        case "ayaya":
+        case 63:
+          url = "https://youtu.be/uIauXFVABIQ";
+          voiceChannel.join()
+          .then(connection => {
+          const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
+          .on('finish', function() {voiceChannel.leave()});
+          }).catch(console.error);
+          embed
+          .setColor('#FFB6C1')
+          .setTitle("AYAYA")
+          .setDescription("This ones called AYAYA. Use 'clip ayaya' to call it.")
+          .setURL(url);
         return message.say(embed);
       }
   }

@@ -3,11 +3,11 @@ const { Command } = require('discord.js-commando');
 module.exports = class CollinGoWhereCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'collingowhere',
-      aliases: ['collin-goes-where', 'where-collin-eat'],
-      memberName: 'collingowhere',
+      name: 'eatwhere',
+      aliases: ['collin-goes-where', 'where-collin-eat', 'collingowhere'],
+      memberName: 'eatwhere',
       group: 'noahs',
-      description: 'Chooses a place from a set list',
+      description: 'Chooses a place to eat from a set list',
       args: [
         {
           key: 'place',
