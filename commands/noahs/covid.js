@@ -30,24 +30,25 @@ module.exports = class NoahCommand extends Command {
       var info;
       var infoString = "State: ";
       
-      fetch("https://api.covid19api.com/live/country/united-states/status/confirmed", requestOptions, state, i)
+      fetch("https://covid19api.io/api/v1/UnitedStateCasesByStates", requestOptions)
         .then(response => response.json())
         .then(result => { 
-          for (i in result) {
-            if (result[i].Province == state) {
-              info = result[i];
+          for (i in result.data[0].table) {
+            if (result.data[0].table[i].state == state) {
+              info = result.data[0].table[i];
             }
           }
-          infoString += JSON.stringify(info.Province);
-          infoString += "\nConfirmed: " + JSON.stringify(info.Confirmed);
-          infoString += "\nDeaths: " + JSON.stringify(info.Deaths);
-          infoString += "\nRecovered: " + JSON.stringify(info.Recovered);
-          infoString += "\nActive: " + JSON.stringify(info.Active);
+          //console.log(info)
+          infoString += JSON.stringify(info.state);
+          infoString += "\nPositive: " + JSON.stringify(info.positive);
+          infoString += "\nDeaths: " + JSON.stringify(info.death);
+          infoString += "\nRecovered: " + JSON.stringify(info.recovered);
+          infoString += "\nHospitalized Currently: " + JSON.stringify(info.hospitalizedCurrently);
           const embed = new MessageEmbed()
           .setColor('#FF1493')
           .setTitle("COVID-19 Info")
           .setDescription(infoString)
-          .setURL('https://api.covid19api.com/live/country/united-states/status/confirmed');
+          .setURL('https://covid19api.io/api/v1/UnitedStateCasesByStates');
           return message.say(embed);
         })
         .catch(error => console.log('error', error));
