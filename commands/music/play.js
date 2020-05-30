@@ -134,14 +134,29 @@ module.exports = class PlayCommand extends Command {
       vidNameArr.push(`${i + 1}: ${videos[i].title}`);
     }
     vidNameArr.push('exit');
+
+    const durationArray = [];
+    for (let i = 0; i < videos.length; i++) {
+      var tempVideo = youtube.getVideoByID(videos[i].id).then(function (video) {return video});
+      var tempDuration = (await tempVideo).duration;
+      durationArray.push(PlayCommand.formatDuration(tempDuration));
+    }
+    
+    const urlArray = [];
+    for (let i = 0; i < videos.length; i++) {
+      var tempVideo = youtube.getVideoByID(videos[i].id).then(function (video) {return video});
+      var tempThumb = (await tempVideo).thumbnails.default.url;
+      urlArray.push(tempThumb);
+    }
+
     const embed = new MessageEmbed()
       .setColor('#e9f931')
       .setTitle('Choose a song by commenting a number between 1 and 5')
-      .addField('Song 1', vidNameArr[0])
-      .addField('Song 2', vidNameArr[1])
-      .addField('Song 3', vidNameArr[2])
-      .addField('Song 4', vidNameArr[3])
-      .addField('Song 5', vidNameArr[4])
+      .addField('Song 1', vidNameArr[0] + " **[" + durationArray[0] + "]**")
+      .addField('Song 2', vidNameArr[1] + " **[" + durationArray[1] + "]**")
+      .addField('Song 3', vidNameArr[2] + " **[" + durationArray[2] + "]**")
+      .addField('Song 4', vidNameArr[3] + " **[" + durationArray[3] + "]**")
+      .addField('Song 5', vidNameArr[4] + " **[" + durationArray[4] + "]**")
       .addField('Exit', 'exit');
     var songEmbed = await message.channel.send({ embed });
     message.channel
