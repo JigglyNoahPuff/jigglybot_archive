@@ -97,7 +97,7 @@ module.exports = class PickHeroCommand extends Command {
         }
 
         else if (game == "valorant") {
-            randNum = Math.floor(Math.random() * 10);
+            randNum = Math.floor(Math.random() * 11);
             switch(randNum) {
                 case 0: 
                 return message.say("Omen");
@@ -119,6 +119,8 @@ module.exports = class PickHeroCommand extends Command {
                 return message.say("Breach");
                 case 9: 
                 return message.say("Viper");
+                case 10: 
+                return message.say("Reyna");
             }
         }
 
