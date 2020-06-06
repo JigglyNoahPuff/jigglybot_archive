@@ -4,6 +4,7 @@ const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const { youtubeAPI } = require('../../config.json');
 const youtube = new Youtube(youtubeAPI);
+var isPlaying = false;
 
 module.exports = class ClipCommand extends Command {
   constructor(client) {
@@ -24,9 +25,11 @@ module.exports = class ClipCommand extends Command {
     });
   }
 
+ 
+
   run(message, {clip}) {
     var voiceChannel = message.member.voice.channel;
-    var isPlaying = false;
+    
     if (clip == "random") {
       clip = Math.floor(Math.random() * 64);
     }
@@ -41,8 +44,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Ed-hguXms2Q', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -57,9 +64,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/JdCq2i1dA6w', { quality: 'highestaudio' }))
-          .then(function() {isPlaying = false})
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -69,13 +79,14 @@ module.exports = class ClipCommand extends Command {
         return message.say(embed);
 
         case "sometimesstraight":
-          case 3:
-            isPlaying = true;
+        case 3:
+          isPlaying = true;
           voiceChannel.join()
             .then(connection => {
             const dispatcher = connection.play(ytdl('https://youtu.be/jAXguUR4pOU', { quality: 'highestaudio' }))
-            .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+            .on('finish', function() {isPlaying = false
+            setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
+            isPlaying = false;}}, 60000)});
             }).catch(console.error);
             embed
             .setColor('#FFB6C1')
@@ -90,8 +101,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/h2JQ6jCDSFg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -106,8 +121,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/I6v0nhEFUK8', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -122,8 +141,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/R7BiKZbKffk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -138,8 +161,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/TiC8pig6PGE', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -154,8 +181,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/T23s3O6iSiU', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -170,8 +201,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/G7RgN9ijwE4', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -186,8 +221,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/PDNZX2nql2Y', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -202,8 +241,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/_pVNvSuA2mM', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -218,8 +261,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/d6gBu2Zd7Bc', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -234,8 +281,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/8EGliGWfuNI', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -250,8 +301,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/3WAOxKOmR90', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -266,8 +321,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Obgnr9pc820', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -282,8 +341,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/W6oQUDFV2C0', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -298,8 +361,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/qr89xoZyE1g', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -314,8 +381,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/c5Y25FT7DxE', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -330,8 +401,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/yytbDZrw1jc', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -346,8 +421,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/9Deg7VrpHbM', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -362,8 +441,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/c3m4Q07TkMk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -378,8 +461,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Tlwda9S58Lg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -395,8 +482,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/F8W9370CHkk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -411,8 +502,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Mvaa80lVcfg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -427,8 +522,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=jar1LTxxAeM', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -443,8 +542,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/eTMb2UkW4xY', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -459,8 +562,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/FPZi51GL3cs', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -475,8 +582,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/iZlpsneDGBQ', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -491,8 +602,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/NOPIobI_0B8', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -507,8 +622,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/z7fT6PdBptU', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -523,8 +642,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/FQ6_hKvCdMw', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -539,8 +662,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/q4F2Qv5Ddcw', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -555,8 +682,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/g9kZrOiqaKk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -571,8 +702,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/FZUcpVmEHuk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -587,8 +722,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/SLEdsI731J4', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -603,8 +742,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/9sPthPleEKo', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -619,8 +762,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/77sS5IuR0Gs', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -635,8 +782,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/NsLKQTh-Bqo', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -651,8 +802,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/d7mrBC0zLZg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -667,8 +822,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/sahAbxq8WPw', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -683,8 +842,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/3w-2gUSus34', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -700,8 +863,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=JfXCb9hSBMg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -716,8 +883,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=QISupPNCRYg', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -732,8 +903,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=yOMj7WttkOA', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -748,8 +923,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/_BcnxsvM6J8', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -764,8 +943,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/g8ufRnf2Exc', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -780,8 +963,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/KJ070rc5hpw', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -797,8 +984,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/ngdAwK-VT3Q', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -813,8 +1004,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/ehH9OQMQXIk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -830,8 +1025,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/BS2hrc6TpIA', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -846,8 +1045,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/ei0ds1Dj6_c', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -862,8 +1065,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/hjsm-2oCcLk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -878,8 +1085,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/LtH7l-dhHZQ', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -894,8 +1105,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Acjf66Qdj2U', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -910,8 +1125,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/1Vi5MtBFdJo', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -928,8 +1147,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/Of_Apo0hcik', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -944,8 +1167,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/dNQs_Bef_V8', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -962,8 +1189,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/U6Jogncx9Hk', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -978,8 +1209,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/EcLPNGLRHU8', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -995,8 +1230,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/xZ_22WJW8rA', { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -1083,8 +1322,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -1100,8 +1343,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
@@ -1117,8 +1364,12 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl(url, { quality: 'highestaudio' }))
-          .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
-                  isPlaying = false}}, 60000)});
+          .on('finish', function() {
+            isPlaying = false;
+            setTimeout(() => {
+              if (!isPlaying) {
+                voiceChannel.leave();
+                isPlaying = false;}}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
