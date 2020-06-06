@@ -57,6 +57,7 @@ module.exports = class ClipCommand extends Command {
           voiceChannel.join()
           .then(connection => {
           const dispatcher = connection.play(ytdl('https://youtu.be/JdCq2i1dA6w', { quality: 'highestaudio' }))
+          .then(function() {isPlaying = false})
           .on('finish', function() {setTimeout(() => {if (!isPlaying) {voiceChannel.leave()
                   isPlaying = false}}, 60000)});
           }).catch(console.error);
