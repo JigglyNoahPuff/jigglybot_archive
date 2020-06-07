@@ -40,6 +40,30 @@ module.exports = class PlayCommand extends Command {
       return message.say('Please try after the trivia has ended');
     }
 
+    if((query == "Last") && (message.guild.musicData.lastPlayed != null)) {
+      const lastVideo = message.guild.musicData.lastPlayed;
+      console.log('-1');
+      console.log(lastVideo.raw.id);
+      message.guild.musicData.queue.push(
+        PlayCommand.constructSongObj(lastVideo, voiceChannel)
+      );
+      console.log('0');
+      if (
+        message.guild.musicData.isPlaying == false ||
+        typeof message.guild.musicData.isPlaying == 'undefined'
+      ) {
+        console.log('1')
+        message.guild.musicData.isPlaying = true;
+        return PlayCommand.playSong(message.guild.musicData.queue, message);
+      } else if (message.guild.musicData.isPlaying == true) {
+        console.log('2')
+        return message.say(`${lastVideo.title} added to queue`);
+      }
+    }
+    else if ((query == "Last") && (message.guild.musicData.lastPlayed == null)) {
+      return message.say("No song was played last!")
+    }
+
     if (
       // if the user entered a youtube playlist url
       query.match(
@@ -60,6 +84,7 @@ module.exports = class PlayCommand extends Command {
         // this can be uncommented if you choose to limit the queue
         // if (message.guild.musicData.queue.length < 10) {
         //
+        message.guild.musicData.lastPlayed = video;
         message.guild.musicData.queue.push(
           PlayCommand.constructSongObj(video, voiceChannel)
         );
@@ -90,6 +115,7 @@ module.exports = class PlayCommand extends Command {
           'There was a problem getting the video you provided!'
         );
       });
+      message.guild.musicData.lastPlayed = video;
       // // can be uncommented if you don't want the bot to play live streams
       // if (video.raw.snippet.liveBroadcastContent === 'live') {
       //   return message.say("I don't support live streams!");
@@ -195,6 +221,7 @@ module.exports = class PlayCommand extends Command {
             //     'There are too many songs in the queue already, skip or wait a bit'
             //   );
             // }
+            message.guild.musicData.lastPlayed = video;
             message.guild.musicData.queue.push(
               PlayCommand.constructSongObj(video, voiceChannel)
             );

@@ -12,7 +12,8 @@ Structures.extend('Guild', function(Guild) {
         isPlaying: false,
         nowPlaying: null,
         songDispatcher: null,
-        volume: 1
+        volume: 1,
+        lastPlayed: null
       };
       this.triviaData = {
         isTriviaRunning: false,
@@ -61,6 +62,13 @@ client.on('guildMemberAdd', member => {
   channel.send(`Welcome ${member}!`);
 });
 
+client.on('message', function(message) {
+  messageLower = message.content.toLowerCase();
+  if(messageLower.search("hentai") != -1) {
+    return message.say(":disappointed:");
+  }
+})
+
 client.login(token);
 
 //todo:
@@ -68,3 +76,4 @@ client.login(token);
 //random from given list (comma seperated)
 //play last replay function
 //join function for if collin breaks the music again
+//dad bot
