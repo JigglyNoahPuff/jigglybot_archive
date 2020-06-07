@@ -28,7 +28,15 @@ module.exports = class ClipCommand extends Command {
  
 
   run(message, {clip}) {
-    var voiceChannel = message.member.voice.channel;
+    const voiceChannel = message.member.voice.channel;
+    if (!voiceChannel) return message.say('Join a channel and try again');
+
+    if (message.guild.triviaData.isTriviaRunning == true) {
+      return message.say('Please try after the trivia has ended');
+    }
+    if ((message.guild.musicData.nowPlaying != null) || (message.guild.musicData.queue > 0)) {
+      return message.say('Please try after the music has ended')
+    }
     
     if (clip == "random") {
       clip = Math.floor(Math.random() * 64);
