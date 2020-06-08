@@ -73,9 +73,8 @@ client.on('message', function(message) {
 client.login(token);
 
 //todo:
-//random from list of restaurants
+//random from list of restaurants (make bigger)
 //join function for if collin breaks the music again
 //dad bot
-//timer
 //remindme
 //get on @
