@@ -21,6 +21,7 @@ Structures.extend('Guild', function(Guild) {
         triviaQueue: [],
         triviaScore: new Map()
       };
+      this.timer1 = null;
     }
   }
   return MusicGuild;
@@ -73,7 +74,8 @@ client.login(token);
 
 //todo:
 //random from list of restaurants
-//random from given list (comma seperated)
-//play last replay function
 //join function for if collin breaks the music again
 //dad bot
+//timer
+//remindme
+//get on @
