@@ -69,14 +69,15 @@ client.on('message', function(message) {
     message.say(":disappointed:");
   }
 
-  if (message.author.id != 709247437189021740) {
-    if (messageLower.search("i'm" > -1)) {
-      message.say("Hi " + message.content.substring(messageLower.search("i'm"), messageLower.length) + ". I'm Dadbot!")
+  /*
+  if (message.author.id != 709247437189021740)  {
+    if (messageLower.search("i'm " > -1)) {
+      message.say("Hi " + message.content.substring(messageLower.search("i'm ") + 4, messageLower.length) + ". I'm Dadbot!")
     }
-    else if (messageLower.search("im") > -1) {
-      message.say("Hi " + message.content.substring(messageLower.search("im"), messageLower.length) + ". I'm Dadbot!")
+    else if (messageLower.search("im ") > -1) {
+      message.say("Hi " + message.content.substring(messageLower.search("im ") + 3, messageLower.length) + ". I'm Dadbot!")
     }
-  }
+  }*/
   return
 })
 
