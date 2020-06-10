@@ -66,8 +66,18 @@ client.on('guildMemberAdd', member => {
 client.on('message', function(message) {
   messageLower = message.content.toLowerCase();
   if(messageLower.search("hentai") != -1) {
-    return message.say(":disappointed:");
+    message.say(":disappointed:");
   }
+
+  if (message.author.id != 709247437189021740) {
+    if (messageLower.search("i'm" > -1)) {
+      message.say("Hi " + message.content.substring(messageLower.search("i'm"), messageLower.length) + ". I'm Dadbot!")
+    }
+    else if (messageLower.search("im") > -1) {
+      message.say("Hi " + message.content.substring(messageLower.search("im"), messageLower.length) + ". I'm Dadbot!")
+    }
+  }
+  return
 })
 
 client.login(token);
@@ -75,6 +85,5 @@ client.login(token);
 //todo:
 //random from list of restaurants (make bigger)
 //join function for if collin breaks the music again
-//dad bot
 //remindme
 //get on @
