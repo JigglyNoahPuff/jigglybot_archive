@@ -34,8 +34,11 @@ module.exports = class RemindMeAtCommand extends Command {
         minute = fullTime[0];
         hour = fullTime[1];
         newDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute);
-        ms = ms - newDate.getTime();
-        message.say("Reminder for " + name + " set for " + minute + "/" + hour);
+        message.say(ms);
+        ms = newDate.getTime() - ms;
+        message.say(newDate.getTime());
+        message.say(ms);
+        message.say("Reminder for " + name + " set for " + hour + "/" + minute);
         try {
             var member = message.member;
                 setTimeout(() => {  
@@ -78,8 +81,8 @@ module.exports = class RemindMeAtCommand extends Command {
         return
     }
     else if(fullTime.length == 5) {
-        minute = fullTime[0];
-        hour = fullTime[1];
+        minute = fullTime[1];
+        hour = fullTime[0];
         day = fullTime[2];
         month = fullTime[3];
         year = fullTime[4];
