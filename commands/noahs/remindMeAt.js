@@ -8,7 +8,7 @@ module.exports = class RemindMeAtCommand extends Command {
       aliases: ['remind', 'remindme', 'remindat'],
       group: 'noahs',
       memberName: 'remindmeat',
-      description: 'Reminds you at a give time mn/hr or mn/hr/dd/mm or mn/hr/dd/mm/yyyy',
+      description: 'Reminds you at a give time hr:mn or hr:mn/mm/dd or hr:mn/mm/dd/yyyy',
       args: [
         {
             key: 'time',
@@ -25,20 +25,47 @@ module.exports = class RemindMeAtCommand extends Command {
   }
 
   run(message, {time, name}) {
+    var semiTime = time.split(':')
     var fullTime = time.split('/');
     var d = new Date();
-    var ms = d.getTime();
-    var minute, hour, day, month, year, newDate;
+    var ms, minute, hour, day, month, year, newDate;
+    message.say("UTC Time is " + d.getUTCHours() + ":" + d.getUTCMinutes());
+    if (fullTime.length == 1) {
+        minute = parseInt(semiTime[1]);
+        hour = parseInt(semiTime[0]);
+        newDate = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), hour, minute, 0, 0);
+        ms = newDate.getTime() - d.getTime() - 21600000;
 
-    if (fullTime.length == 2) {
-        minute = fullTime[0];
-        hour = fullTime[1];
-        newDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute);
-        message.say(ms);
-        ms = newDate.getTime() - ms;
-        message.say(newDate.getTime());
-        message.say(ms);
-        message.say("Reminder for " + name + " set for " + hour + "/" + minute);
+        message.say("Reminder for " + name + " set for " + hour + ":" + minute + " or " + ms + " Milliseconds from now");
+
+        try {
+            var member = message.member;
+                setTimeout(() => {  
+                message.say(`${member}`)
+                const embed = new MessageEmbed()
+                    .setColor('#FEC1CF')
+                    .setTitle("Your " + name + " Reminder Is NOW")
+                    .setDescription("Your reminder thing is done now. So be reminded and do not forget.");
+            message.say(embed)
+                .catch(console.error);
+            }, ms);
+        }
+        catch (e) {
+            console.log(e);
+        }
+        return
+    }
+    else if(fullTime.length == 3) {
+        minute = parseInt(semiTime[1]);
+        hour = parseInt(semiTime[0]);
+        day = parseInt(fullTime[2]);
+        month = parseInt(fullTime[1]);
+
+        newDate = new Date(d.getUTCFullYear(), (month - 1), day, hour, minute, 0, 0);
+        ms = newDate.getTime() - d.getTime() - 21600000;
+        
+        message.say("Reminder for " + name + " set for " + hour + ":" + minute + " or " + ms + " Milliseconds from now");
+
         try {
             var member = message.member;
                 setTimeout(() => {  
@@ -57,37 +84,17 @@ module.exports = class RemindMeAtCommand extends Command {
         return
     }
     else if(fullTime.length == 4) {
-        minute = fullTime[0];
-        hour = fullTime[1];
-        day = fullTime[2];
-        month = fullTime[3];
-        newDate = new Date(d.getFullYear(), month, day, hour, minute);
-        ms = ms - newDate.getTime();
-        try {
-            var member = message.member;
-                setTimeout(() => {  
-                message.say(`${member}`)
-                const embed = new MessageEmbed()
-                    .setColor('#FEC1CF')
-                    .setTitle("Your " + name + " Reminder Is NOW")
-                    .setDescription("Your reminder thing is done now. So be reminded and do not forget.");
-            message.say(embed)
-                .catch(console.error);
-            }, ms);
-        }
-        catch (e) {
-            console.log(e);
-        }
-        return
-    }
-    else if(fullTime.length == 5) {
-        minute = fullTime[1];
-        hour = fullTime[0];
-        day = fullTime[2];
-        month = fullTime[3];
-        year = fullTime[4];
-        newDate = new Date(year, month, day, hour, minute);
-        ms = ms - newDate.getTime();
+        minute = parseInt(semiTime[1]);
+        hour = parseInt(semiTime[0]);
+        day = parseInt(fullTime[2]);
+        month = parseInt(fullTime[1]);
+        year = parseInt(fullTime[3]);
+
+        newDate = new Date(year, (month - 1), day, hour, minute, 0, 0);
+        ms = (newDate.getTime() - d.getTime() - 21600000);
+
+        message.say("Reminder for " + name + " set for " + hour + ":" + minute + " or " + ms + " Milliseconds from now");
+
         try {
             var member = message.member;
                 setTimeout(() => {  
