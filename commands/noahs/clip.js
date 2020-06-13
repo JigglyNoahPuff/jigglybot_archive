@@ -83,7 +83,7 @@ module.exports = class ClipCommand extends Command {
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
-          .setTitle("Clip")
+          .setTitle("Cock")
           .setDescription("This ones called Cock. Use 'clip cock' to call it.")
           .setURL('https://youtu.be/JdCq2i1dA6w');
         return message.say(embed);

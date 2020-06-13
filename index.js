@@ -86,5 +86,4 @@ client.login(token);
 //todo:
 //random from list of restaurants (make bigger)
 //join function for if collin breaks the music again
-//remindme
 //get on @
