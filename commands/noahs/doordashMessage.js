@@ -15,10 +15,15 @@ module.exports = class DoorDashCommand extends Command {
           type: 'string'
         },
         {
+            key: 'nameRestaurant',
+            prompt: 'What is the name of the restaurant?',
+            type: 'string'
+          },
+        {
           key: 'reasonNumber',
           prompt: 'What is the name of the restaurant?',
           type: 'integer'
-          }
+        }
       ]
     });
   }
