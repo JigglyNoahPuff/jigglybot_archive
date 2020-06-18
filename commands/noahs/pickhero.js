@@ -18,7 +18,7 @@ module.exports = class PickHeroCommand extends Command {
     });
   }
 //TODO: embed message with included picture of hero
-//Allow Overwatch to choose by roll
+//Allow Overwatch to choose by role
 //Add Smash
 //Add Mariokart
 
