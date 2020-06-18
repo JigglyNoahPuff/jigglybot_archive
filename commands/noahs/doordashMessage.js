@@ -5,9 +5,9 @@ module.exports = class DoorDashCommand extends Command {
     super(client, {
       name: 'doordash',
       aliases: ['dd', 'ddmessage', 'doordashmessage'],
-      memberName: 'die',
+      memberName: 'doordash',
       group: 'noahs',
-      description: 'Rolls a die of the size given',
+      description: 'Creates a message from a template to message customers',
       args: [
         {
           key: 'nameCustomer',
