@@ -4,7 +4,6 @@ const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const { youtubeAPI } = require('../../config.json');
 const youtube = new Youtube(youtubeAPI);
-//var isPlaying = false; deprecated since use of global timer
 
 module.exports = class ClipCommand extends Command {
   constructor(client) {
@@ -70,21 +69,20 @@ module.exports = class ClipCommand extends Command {
 
         case "cock":
         case 1:
+        case 2:
           voiceChannel.join()
           .then(connection => {
             message.guild.timer1 = d.getTime();
           const dispatcher = connection.play(ytdl('https://youtu.be/JdCq2i1dA6w', { quality: 'highestaudio' }))
           .on('finish', function() {          
             message.guild.timer1 = d.getTime();          
-            setTimeout(() => {
-              if (message.guild.timer1 <= time) {
-                voiceChannel.leave();
+            setTimeout(() => {if (message.guild.timer1 <= time) {voiceChannel.leave()                
       }}, 60000)});
           }).catch(console.error);
           embed
           .setColor('#FFB6C1')
           .setTitle("Cock")
-          .setDescription("This ones called Cock. Use 'clip cock' to call it.")
+          .setDescription("This ones called Cock. Use 'clip cock' to call it.  FIX: I think Youtube bans this one on links, will have to update link")
           .setURL('https://youtu.be/JdCq2i1dA6w');
         return message.say(embed);
 
@@ -95,7 +93,7 @@ module.exports = class ClipCommand extends Command {
             message.guild.timer1 = d.getTime();
             const dispatcher = connection.play(ytdl('https://youtu.be/jAXguUR4pOU', { quality: 'highestaudio' }))
             .on('finish', function() {          
-            message.guild.timer1 = d.getTime();isPlaying = false
+            message.guild.timer1 = d.getTime();
             setTimeout(() => {if (message.guild.timer1 <= time) {voiceChannel.leave()
   }}, 60000)});
             }).catch(console.error);
@@ -1256,6 +1254,7 @@ module.exports = class ClipCommand extends Command {
         return message.say(embed);
 
         case "china":
+        case ":flashlight:":
         case 61:
           var randTrump = Math.floor(Math.random() * 23);
           switch (randTrump) {
@@ -1349,6 +1348,7 @@ module.exports = class ClipCommand extends Command {
         return message.say(embed);
 
         case "curb":
+        case "754468617910878289":
         case 62:
           url = "https://youtu.be/CdqMZ_s7Y6k";
 
@@ -1371,6 +1371,7 @@ module.exports = class ClipCommand extends Command {
         return message.say(embed);
 
         case "ayaya":
+        case ":flashlight: ":
         case 63:
           url = "https://youtu.be/uIauXFVABIQ";
 

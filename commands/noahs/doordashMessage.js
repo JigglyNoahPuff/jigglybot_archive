@@ -21,7 +21,7 @@ module.exports = class DoorDashCommand extends Command {
           },
         {
           key: 'reasonNumber',
-          prompt: 'What is the reason number?\n0: apt #\n1: Generic Thank You\n2: Specialized Thank You\n3: Specialized Thank You, Please Rate Me',
+          prompt: 'What is the reason number?\n0: Apt #\n1: Generic Thank You\n2: Specialized Thank You\n3: Specialized Thank You, Please Rate Me',
           type: 'integer'
         }
       ]
