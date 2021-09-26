@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "western-mountain",
+  "private_key_id": "zft3VbQtbEm7tpK85TfX3qXk",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCIXoW60oF/nDiK\nxv8hwqZH5rtt3blluUmhhskfrwuDoGGIaivynBimf6WtYCbY/aXyzos0ctPsWKtU\nDeKha4RXdasE5sVn3G6vdk40iOOtrjTi/GVpN/k7yHG968E7r7mJUooWcmch44nY\nDKRLgGq5Rga7QU34uxgdIQQBE/aYYglri1RYoKJO/o+p7ZwEmk6MGSyY51V8j1fx\nYb+1sAqFAa9Se3L7DEFNZVNjUlczOnZI9cORF76Lq+2+35jlNLGfYL0A9rEQiGs6\nZCJUvysrUz1lLAfv9G50dm7UkSQnoi/hbrxmJayaJ5bgB9791hDAwPGobQfuFDw4\n6b6ie/XRAgMBAAECggEADiExHQrrtRO0PhjhXZekEAYlvHwBVjttGCn1k+1YtZI8\nGNzbYd9vpGzMd1rjm48ojzB8dvpA4BfN5L8tkMkppMBB8JeSs7DA3ThWYRYf9SJ8\nQ1qgjVbp4Zpiwql3U55hDIv7V9kRu46ufS7OJS6QoFLTprpdAF0uYfJGTnBJmD9F\nenwksjUk2zrdYyi2kARyGXzSvyGG3Oq9Z/hkdQa0ubdijs/vOm8wWfUNoDtGUoM7\nYGLmIAaP200qYR0DYkt7HlJU+ZFMpkvbwmAODuc1sMCXVzaCEVcKosGb0X/mPvLe\nnYkDKRVZQe3CIjZNjXPA9PH6KM+kDzu+YJbc5ne4CwKBgQDA0pE/+9tRSYppyoqr\n/q7/LwrnWNmeKtuLDN0t4w3nQEh4jWh9FNjv5k7GYL9wL28JPqFpRRW9T2JYfoeg\n2k+t8hnqVGpkpqDJaGHKxzCgxXjgvDA2x7rftCm/ztDQL7UhnmHrrnc5wpRkQJe1\nApk5Oll6JvFD1ypQMFBq1PXh1wKBgQC1DM4AcZZInnfzgT8YfC7TaMiEZiOLYdpR\nOshMx1+zjFlLpeWMuNAoLCrBNqQSlbptc1m+TFviqooZaoPLge/DFfh9luq6ZidE\nZEDemE9aMz/Tx57R74oHUpC1xEI2kYKlVAw+D9xaoN9BLQ8/Mlyp9RfSe7Q+u0EZ\nNEPX9zJAlwKBgQCpvbOXu8KJgE+UaXRBjGXIxkS2+4Q2tEun0J80MdifZftmBDWj\nRqLiLL/T6n8b5uW8IaI95U8J48QTWu9SLlxOJ/2gRseR6w1Hv9e2hjrMjImobIGU\n96YOH69Q5mLzocu12JMiwea6tgujZSkncy4nLrJt0bI5okPha2afZPE+6QKBgCI9\nO7AlyxAMuA6bAL22rnxYsqMnVc2EQe9euIacpeKkxjZiN1k3klYmlCdaGAlTu5/7\nUpuEgVQKgHdyB16zQg6Y1xeZNObvbrmmZAY0s70ROB7q/4QgUvAzkx5s8UC0oAp4\nLKCIC1owVkhTJzECazfRHCI4NswuSY9krPfozd4dAoGAZxQVHlG0ly2U3Szm1UVD\nK78+2GXHme8xbZrhXVu/XNe+fruEUxZvz7I9Q4LMYW3v9VqyHMc1A+6UhB3PlVmB\n+PF5WH3BLahaeg36/4jsyi7kZJJTbtY/SNElsqFuo1fbKZCMhpnMwTp24Uid0Sv4\nA+3ZC0NJvMF8KWIep1zC3FE=\n-----END PRIVATE KEY-----\n",
+  "client_email": " noah-desktop@western-mountain.iam.gserviceaccount.com",
+  "client_id": "492636422215-mn97kr51p8gfifo31f257o8ul35laa8p.apps.googleusercontent.com",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/noah-desktop%40task-automation-internal-0001.iam.gserviceaccount.com"
+}
