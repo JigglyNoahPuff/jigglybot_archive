@@ -1,15 +1,16 @@
 # imports
-import pandas as pd
-import tensorflow.keras as keras
 import os
 import discord
 from botInfo import info
-from functions_handler import *
+from functions.botVars import *
 from discord.ext import tasks
 from discord.ext import commands
+import youtube_dl
+
+import random
 
 TOKEN = info['token']
-client = discord.Client()
+client = commands.Bot(command_prefix="!")
 
 
 # global vars
@@ -18,77 +19,116 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
-    resin_check_function.start()
-
-@client.event
-async def on_message(message):
-    madCheck = variables.madCheck
-
-    if message.author == client.user:
-        return
-
-    command = message.content.lower().split(' ')[0]
-    msg_full = message.content[len(command)+1:]
-    msg = message.content.lower().split(' ')
-    msg.remove(command)
-    # Commands that do not need an input
-    if command == 'test':
-        await message.channel.send('This is a test, ' + message.author.name +
-                                   ' is a weeb')
-
-    elif command == 'madlib':
-        if madCheck == 0:
-            await message.channel.send('I need the following: ' + getPrompts())
-            variables.setMadCheck(1)
-        else:
-            variables.setMadCheck(0)
-            if len(msg) == len(getPrompts().split(', ')):
-                await message.channel.send(getMadLib(msg_full))
-
-            elif msg_full.find('cancel') != -1:
-                await message.channel.send('Okay no madlibs for now.')
-            else:
-                await message.channel.send('Wrong size of inputs!')
-
-    elif command == 'genshin':
-        await message.channel.send(genshin(message))
-
-    elif len(msg_full) < 1:
-        return
-
-    # Commands that need an input
-    elif command == 'pick':
-        await message.channel.send(pick(msg_full))
-
-    elif command == 'shrek':
-        await message.channel.send(makeShrek(msg_full))
-
-    elif command.find('sponge') != -1:
-        await message.channel.send(spongeText(msg_full))
 
 
-@tasks.loop(seconds = 480)
-async def resin_check_function():
-    """Increment resin amount every 8 minutes"""
-    dat = pd.read_csv('resin.csv')
-    # Increment resin amount
-    dat.amount = dat.amount.apply(lambda x: x + 1 if x < 160 else x)
-    # Send message if amount >= resinNotif
-    for i in range(len(dat)):
-        if dat.amount[i] == 160 and dat.fullNotif[i] and False:
-            guild = await client.fetch_guild(221085790925488129)
-            member = await guild.fetch_member(dat.userID[i])
-            await member.send('Your resin is ready. You now have ' + str(dat.amount[i]) + ' resin.')
-            print(member.name + ' was notified.')
-            dat.iloc[i, dat.columns.get_loc('resinNotif')] = 161
-        elif dat.amount[i] >= dat.resinNotif[i] and dat.notifs[i]:
-            guild = await client.fetch_guild(221085790925488129)
-            member = await guild.fetch_member(dat.userID[i])
-            await member.send('Your resin is ready. You now have ' + str(dat.amount[i]) + ' resin.')
-            print(member.name + ' was notified.')
-            dat.iloc[i, dat.columns.get_loc('resinNotif')] = 161
+## MUSIC FUNCTIONS  ################################################################################################################################
+@client.command()
+async def play(ctx, url : str):
+    if not client.voice_clients:
+        voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Anechoic Salt Mine')
+        await voiceChannel.connect()
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    song_there = os.path.isfile("song.mp3")
+    if not voice.is_playing():
+        try:
+            if song_there:
+                os.remove("song.mp3")
+        except PermissionError:
+            return await ctx.send("Wait for the current playing music to end or use the 'stop' command")
+    else:
+        return await ctx.send('Hey dummy. Wait till the current song/clip is done.')
+        
+    
 
-    dat.to_csv('resin.csv', index=False)
-    pass
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+    for file in os.listdir("./"):
+        if file.endswith(".mp3"):
+            os.rename(file, "song.mp3")
+    voice.play(discord.FFmpegPCMAudio("song.mp3"))
+    return
+
+@client.command()
+async def leave(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_connected():
+        await voice.disconnect()
+    else:
+        await ctx.send("The bot is not connected to a voice channel.")
+
+
+@client.command()
+async def pause(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_playing():
+        voice.pause()
+    else:
+        await ctx.send("Currently no audio is playing.")
+
+
+@client.command()
+async def resume(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_paused():
+        voice.resume()
+    else:
+        await ctx.send("The audio is not paused.")
+
+
+@client.command()
+async def stop(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    voice.stop()
+
+####################################################################################################################################################
+
+# Pick from a list of options
+## Collin wants this to default to seprating by ", " instead of just " ".  This would also allow for multi word inputs to be grouped as one word
+@client.command()
+async def pick(ctx, *args):
+    if len(args):
+        return await ctx.send(str(args[random.randint(0, len(args)-1)]))
+    return await ctx.send('There\'s nothing to pick from dummy.')
+
+
+@client.command()
+async def clip(ctx, arg):
+    # Make sure that nothing else is playing
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_playing():
+        return await ctx.send('Hey dummy. Wait till the current song/clip is done.')
+    
+    clipList = os.listdir("./clips")
+    
+    if f'{arg}.mp3' in clipList:
+        clipFilePath = f'./clips/{arg}.mp3'
+    elif f'{arg}.wav' in clipList:
+        clipFilePath = f'./clips/{arg}.wav'
+    elif arg.lower() == 'random':
+        clipFilePath = f'./clips/{clipList[random.randint(0, len(clipList)-1)]}'
+    else:
+        clipFilePath = f'./clips/thatsNotAClipCarlWheezer.wav'
+
+    # Check if we need to join a voice channel or if we are already in it
+    if not client.voice_clients:
+        voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Anechoic Salt Mine')
+        await voiceChannel.connect()
+
+    voice.play(discord.FFmpegPCMAudio(clipFilePath), after=variables.switchIsPlaying())
+    return
+
+
+@client.command()
+async def clipList(ctx):
+    clipList = [clip[:clip.find('.')] for clip in os.listdir("./clips")]
+    return await ctx.send(str(clipList))
 
 client.run(TOKEN)
